@@ -1,4 +1,4 @@
-import Chats from "../components/main/Chats";
+import Chats from "../pages/main/ChatPage";
 
 const Router = () => {
   return (
