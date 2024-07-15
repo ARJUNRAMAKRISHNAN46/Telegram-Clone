@@ -1,7 +1,7 @@
 import MessageInput from "../../components/message/MessageInput";
 import MessageNavbar from "../../components/message/MessageNavbar";
 import Messages from "../../components/message/Messages";
-import { useLocation, useParams } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import ChatPage from "../main/ChatPage";
 import WebMessages from "../../components/message/WebMessages";
 
@@ -9,7 +9,6 @@ const MessageContainer = () => {
   const location = useLocation();
   const queryParams = new URLSearchParams(location.search);
   const name = queryParams.get("name");
-  const { id } = useParams();
 
   return (
     <div className="">
