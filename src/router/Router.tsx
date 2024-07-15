@@ -8,7 +8,7 @@ const Router = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Chats />} />
-        <Route path="/about" element={<MessageContainer />} />
+        <Route path="/chat/:id" element={<MessageContainer />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>

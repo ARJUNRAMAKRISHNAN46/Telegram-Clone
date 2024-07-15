@@ -4,8 +4,8 @@ import Messages from "../../components/message/Messages";
 
 const MessageContainer = () => {
   return (
-    <div>
-      <div className="md:hidden">
+    <div className="">
+      <div className=" md:hidden h-screen flex flex-col justify-between">
         <MessageNavbar />
         <Messages />
         <MessageInput />

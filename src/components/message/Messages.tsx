@@ -1,9 +1,14 @@
+import bgImage from "../../../src/assets/chat-bg.png";
+
 const Messages = () => {
   return (
-    <div>
-      
-    </div>
-  )
-}
+    <div
+      className="h-[850px]"
+      style={{
+        backgroundImage: `url(${bgImage})`,
+      }}
+    ></div>
+  );
+};
 
-export default Messages
+export default Messages;
