@@ -3,7 +3,7 @@ import Navbar from "../../components/common/Navbar";
 
 const ChatPage = () => {
   return (
-    <div className="border-2 bg-white dark:bg-gray-800 border-gray-300 w-screen md:w-[412px]">
+    <div className="border-2 bg-white h-screen dark:bg-gray-800 border-gray-300 w-screen md:w-[412px]">
       <Navbar />
       <Chats />
     </div>

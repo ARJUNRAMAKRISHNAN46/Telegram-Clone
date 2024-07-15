@@ -54,7 +54,7 @@ const ChatList: React.FC = () => {
   }, [loading]);
 
   return (
-    <div>
+    <div className="h-[94vh] overflow-scroll">
       <Chat chats={chats} />
       {loading && <p>Loading...</p>}
     </div>

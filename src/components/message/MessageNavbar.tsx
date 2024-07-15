@@ -13,7 +13,7 @@ const MessageNavbar = ({ name }: any) => {
 
   return (
     <div className="flex justify-between items-center  bg-white dark:bg-gray-800">
-      <div className="flex py-2">
+      <div className="flex py-2 px-1 md:px-4">
         <div className="md:hidden flex justify-center items-center">
           <FaArrowLeft
             className="text-2xl font-thin m-2 text-gray-600 dark:text-gray-300"
