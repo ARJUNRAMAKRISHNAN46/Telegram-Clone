@@ -14,7 +14,7 @@ const MessageContainer = () => {
     <div className="">
       <div className=" md:hidden h-screen flex flex-col justify-between">
         <MessageNavbar name={name} />
-        <Messages userId={id} />
+        <Messages />
         <MessageInput />
       </div>
     </div>

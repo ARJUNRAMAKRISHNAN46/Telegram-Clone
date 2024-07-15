@@ -1,29 +1,32 @@
 import axios from "axios";
 import bgImage from "../../../src/assets/chat-bg.png";
 import { useEffect, useState } from "react";
+import Message from "./Message";
 
-const Messages = ({userId}: any) => {
-  const [messages, setMessages] = useState();
+const Messages = () => {
+  const [messages, setMessages] = useState<any[]>([]);
   const fetchMessage = async () => {
     const messages = await axios.get(
       "https://devapi.beyondchats.com/api/get_chat_messages?chat_id=3888"
     );
     setMessages(messages.data?.data);
   };
-
-  console.log("messages: ", messages);
-
+  
   useEffect(() => {
     fetchMessage();
   }, []);
 
   return (
     <div
-      className="h-[850px]"
+      className="h-[850px] overflow-scroll px-2"
       style={{
         backgroundImage: `url(${bgImage})`,
       }}
-    ></div>
+    >
+      {messages?.map((message) => (
+        <Message message={message} />
+      ))}
+    </div>
   );
 };
 
