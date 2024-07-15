@@ -1,12 +1,18 @@
 import MessageInput from "../../components/message/MessageInput";
 import MessageNavbar from "../../components/message/MessageNavbar";
 import Messages from "../../components/message/Messages";
+import { useLocation } from "react-router-dom";
 
 const MessageContainer = () => {
+  const location = useLocation();
+  const queryParams = new URLSearchParams(location.search);
+  const name = queryParams.get("name");
+  console.log("🚀 ~ MessageContainer ~ name:", name);
+
   return (
     <div className="">
       <div className=" md:hidden h-screen flex flex-col justify-between">
-        <MessageNavbar />
+        <MessageNavbar name={name} />
         <Messages />
         <MessageInput />
       </div>
