@@ -22,7 +22,7 @@ const Sidebar = () => {
   };
 
   return (
-    <div className="bg-white dark:bg-gray-600 w-52 h-80 ml-4 rounded-md p-4 mt-2 shadow-2xl">
+    <div className="bg-white dark:bg-gray-800 w-52 h-80 ml-4 rounded-md p-4 mt-2 shadow-2xl dark:shadow-gray-700">
       <ListOption logo={<MdOutlineBookmarkBorder />} name={"Saved Messages"} handleClick={handleTheme} />
       <ListOption logo={<BsClockHistory />} name={"My Stories"} handleClick={handleTheme} />
       <ListOption logo={<MdOutlinePerson />} name={"Contacts"} handleClick={handleTheme} />

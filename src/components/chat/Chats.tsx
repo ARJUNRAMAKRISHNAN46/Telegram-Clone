@@ -1,26 +1,64 @@
-import Chat from "./Chat";
+import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { useEffect, useState } from "react";
+import Chat from "./Chat";
 
-const Chats = () => {
-    const [chats, setChats] = useState();
-    useEffect(() => {
-      fetchChats();
-    }, []);
-    const fetchChats = async () => {
-      const fetchedChats = await axios.get(
-        `https://devapi.beyondchats.com/api/get_all_chats?page=1`
-      );
-      // console.log("🚀 ~ Chat ~ chats:", fetchedChats.data?.data);
-      setChats(fetchedChats.data?.data?.data);
+interface ChatData {
+  id: string;
+  message: string;
+}
+
+const ChatList: React.FC = () => {
+  const [chats, setChats] = useState<ChatData[]>([]);
+  const [page, setPage] = useState<number>(1);
+  const [loading, setLoading] = useState<boolean>(false);
+  const [hasMore, setHasMore] = useState<boolean>(true);
+
+  useEffect(() => {
+    const fetchChats = async (page: number) => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `https://devapi.beyondchats.com/api/get_all_chats?page=${page}`
+        );
+        const newChats = response.data?.data?.data || [];
+        setChats((prevChats) => [...prevChats, ...newChats]);
+        if (newChats.length === 0) {
+          setHasMore(false);
+        }
+      } catch (error) {
+        console.error("Error fetching chats:", error);
+      } finally {
+        setLoading(false);
+      }
     };
-  
-    // console.log(chats);
+
+    if (hasMore) {
+      fetchChats(page);
+    }
+  }, [page]);
+
+  const handleScroll = () => {
+    if (
+      window.innerHeight + document.documentElement.scrollTop !==
+        document.documentElement.offsetHeight ||
+      loading
+    ) {
+      return;
+    }
+    setPage((prevPage) => prevPage + 1);
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, [loading]);
+
   return (
     <div>
-      <Chat chats={chats}/>
+      <Chat chats={chats} />
+      {loading && <p>Loading...</p>}
     </div>
   );
 };
 
-export default Chats;
+export default ChatList;
