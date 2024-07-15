@@ -5,9 +5,11 @@ import Messages from "../../components/message/Messages";
 const MessageContainer = () => {
   return (
     <div>
-      <MessageNavbar />
-      <Messages />
-      <MessageInput />
+      <div className="md:hidden">
+        <MessageNavbar />
+        <Messages />
+        <MessageInput />
+      </div>
     </div>
   );
 };

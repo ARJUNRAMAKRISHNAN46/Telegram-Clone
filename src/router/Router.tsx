@@ -1,10 +1,17 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Chats from "../pages/main/ChatPage";
+import NotFound from "../pages/NotFound/NotFound";
+import MessageContainer from "../pages/message/MessageContainer";
 
 const Router = () => {
   return (
-    <div>
-      <Chats />
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Chats />} />
+        <Route path="/about" element={<MessageContainer />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 

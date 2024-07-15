@@ -1,8 +1,11 @@
 import profilePhoto from "../../../src/assets/demoProfileForTelegram.jpeg";
+import { useNavigate } from "react-router-dom";
 
 const Chat = ({ chats }: any) => {
+  const navigate = useNavigate();
   const openChat = (userId: string) => {
     console.log("🚀 ~ openChat ~ userId:", userId);
+    navigate("/chat/:id");
   };
 
   return (
