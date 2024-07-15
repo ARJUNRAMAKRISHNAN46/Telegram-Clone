@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import Chat from "./Chat";
+import { Skeleton } from "@mui/material";
 
 interface ChatData {
   id: string;
@@ -56,7 +57,37 @@ const ChatList: React.FC = () => {
   return (
     <div className="h-[94vh] overflow-scroll">
       <Chat chats={chats} />
-      {loading && <p>Loading...</p>}
+      {loading && (
+        <div className="w-full px-4">
+          <div className="flex">
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton
+              variant="rectangular"
+              className="ml-4"
+              width={300}
+              height={60}
+            />
+          </div>
+          <div className="flex mt-4">
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton
+              variant="rectangular"
+              className="ml-4"
+              width={300}
+              height={60}
+            />
+          </div>
+          <div className="flex mt-4">
+            <Skeleton variant="circular" width={40} height={40} />
+            <Skeleton
+              variant="rectangular"
+              className="ml-4"
+              width={300}
+              height={60}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
