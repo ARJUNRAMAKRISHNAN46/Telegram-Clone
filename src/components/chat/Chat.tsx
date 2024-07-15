@@ -3,15 +3,17 @@ import { useNavigate } from "react-router-dom";
 
 const Chat = ({ chats }: any) => {
   const navigate = useNavigate();
-  const openChat = (name: string) => {
-    console.log("🚀 ~ openChat ~ userId:", name);
-    navigate(`/chat?name=${name}`);
+  const openChat = (name: string, id: string) => {
+    navigate(`/chat/${id}?name=${name}`);
   };
 
   return (
     <div>
       {chats?.map((chat: any) => (
-        <div className="flex justify-between px-4 mt-4" onClick={() => openChat(chat?.creator?.name)}>
+        <div
+          className="flex justify-between px-4 mt-4"
+          onClick={() => openChat(chat?.creator?.name, chat?.creator?.id)}
+        >
           <div className="flex">
             <img
               className="rounded-full w-14 bg-white dark:bg-gray-600"

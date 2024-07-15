@@ -17,7 +17,7 @@ const Navbar = () => {
           onClick={openSideBar}
         />
         <input
-          className="dark:bg-gray-800 border border-gray-400 rounded-full px-4 py-1 dark:border-gray-300 dark:text-gray-300 w-full outline-none text-gray-600"
+          className="dark:bg-gray-800 border bg-white border-gray-400 rounded-full px-4 py-1 dark:border-gra y-300 dark:text-gray-300 w-full outline-none text-gray-600"
           type="text"
           placeholder="Search"
         />

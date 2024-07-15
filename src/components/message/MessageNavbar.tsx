@@ -29,7 +29,7 @@ const MessageNavbar = ({ name }: any) => {
         </div>
         <div className="ml-3">
           <h1 className="font-semibold text-gray-800 dark:text-gray-200">
-           {name || "No Name" }
+            {name || "No Name"}
           </h1>
           <p className="text-sm text-gray-800 dark:text-gray-200">
             last seen yesterday
